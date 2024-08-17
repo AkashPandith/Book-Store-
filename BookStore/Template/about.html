@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock title %}
+
+{% block body%} 
+<div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .about-us {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .about-us h1 {
+            text-align: center;
+            color: #333;
+        }
+        .about-us p {
+            line-height: 1.6;
+            color: #555;
+        }
+        .about-us img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .team-member {
+            margin: 20px;
+            text-align: center;
+        }
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .team-member h3 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+        .team-member p {
+            color: #777;
+        }
+    </style>
+    <div> 
+        <div class="about-us">
+            <h1>About Us</h1>
+            <p>Welcome to our Book Store! Established in 1990, our store has been serving book lovers for over 30 years. We offer a wide range of books across various genres and languages. Our mission is to foster a love for reading and provide a cozy space for book enthusiasts to explore and enjoy their favorite reads.</p>
+            <img src="https://via.placeholder.com/800x400" alt="Book Store Image">
+            <p>We believe that books have the power to transform lives and broaden horizons. Our team is passionate about books and dedicated to helping you find the perfect read. Whether you're looking for the latest bestseller, a timeless classic, or something in between, we have something for everyone.</p>
+            <h2>Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 1">
+                    <h3>John Doe</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 2">
+                    <h3>Jane Smith</h3>
+                    <p>Manager</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 3">
+                    <h3>Emily Johnson</h3>
+                    <p>Head of Marketing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

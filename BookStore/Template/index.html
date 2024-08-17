@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body%} 
+<center>
+    <h1>
+        Welcome to Our Book Store
+        <br>
+        Find your next great read here!
+    </h1>
+</center>
+
+<div class = "container">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .carousel {
+            position: relative;
+            max-width: 600px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-images img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-buttons button {
+            background-color: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .carousel-buttons button:hover {
+            background-color: rgba(0,0,0,0.7);
+        }
+        .carousel-dots {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .carousel-dots span {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .carousel-dots .active {
+            background-color: #717171;
+        }
+    </style>
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="static/img/c1.jpg">
+            <img src="static/img/c2.jpg">
+            <img src="static/img/c3.jpg">
+        </div>
+        <div class="carousel-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function nextSlide() {
+            showSlides(slideIndex += 1);
+        }
+
+        function prevSlide() {
+            showSlides(slideIndex -= 1);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            const slides = document.getElementsByClassName("carousel-images")[0].children;
+            const dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+</div>
+{% endblock body %}
+
